@@ -1,0 +1,4 @@
+Pixel OS
+Raspberry Pi 3
+SENSE Hat
+Camera Module
