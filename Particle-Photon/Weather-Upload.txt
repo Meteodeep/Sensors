@@ -1,3 +1,4 @@
 Using Sparkrun Data (Phant) or Thingspeak to process data and create graphs by sending date by JSON or HTTPS
 https://learn.sparkfun.com/tutorials/weather-station-wirelessly-connected
 https://learn.sparkfun.com/tutorials/pushing-data-to-datasparkfuncom/all
+https://learn.sparkfun.com/tutorials/photon-weather-shield-hookup-guide/all#example-3-collecting-weather-data-online
