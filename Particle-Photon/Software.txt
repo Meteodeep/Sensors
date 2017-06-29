@@ -1,0 +1,15 @@
+Typeform
+Dweet
+Freeboard
+Losaat
+Matlab
+Thingspeak
+
+HTTPS/JSON  (packages)
+
+url (returns: public/private)
+
+Connecting with Particle Photon
+
+Create Graphs + Visuals inside iOT console....
+
