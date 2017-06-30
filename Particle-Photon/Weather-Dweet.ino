@@ -8,18 +8,21 @@ Weather sensor;
 
 float t = 0;    //actual temperature
 float h = 0;    //humidity
+float p = 0;
 int WDIR = A0;
 int RAIN = D2;
-int WSPEED = D3; //march2017
+int WSPEED = D3; 
 int c = 0;
+
+
 HttpClient http;
 http_request_t request;
 http_response_t response;
 
 http_header_t headers[] = {
-    //  { "Content-Type", "application/json" },
-    //  { "Accept" , "/" },
-    { "Accept" , "*/*"},
+    { "Content-Type", "application/json" },
+    { "Accept" , "/" },
+    // { "Accept" , "*/*"},
     { NULL, NULL } 
 };
 
@@ -46,14 +49,15 @@ void loop() {
 void publishDweet() {
     
     char json[255];
+    char f[] = "Test Text";
     
     request.hostname = "dweet.io";
     request.port = 80;
-    request.path = "/dweet/for/weather-dob_91?";
-	
+    request.path = "/dweet/for/weather-dob_91";
+   
 	//json 
 	// request.body = "{\"humidity\": h,\"temp\": t}"; //"{\"key\":\"value\"}";
-	snprintf(json, sizeof(json), "{ \"t\": %.1f, \"h\": %.1f, \"c\": %i }", t, h, c);
+	snprintf(json, sizeof(json), "{ \"t\": %.1f, \"h\": %.1f, \"c\": %i, \"p\": %.1f }", t, h, c, p );
 	request.body = json;
 	
 	
@@ -72,6 +76,8 @@ void getClimateData() {
     t = (t - 32) * 5/9;
     h = sensor.getRH();
     c = get_wind_direction();
+    p = sensor.readPressure();
+    p = p/100;
 }
 
 //Read the wind direction sensor, return heading in degrees
@@ -109,6 +115,7 @@ void publishData() {
     //      "tC": ##.#
     //      "h": ##.#
     //  }
-    snprintf(payload, sizeof(payload), "{ \"t\": %.1f, \"h\": %.1f, \"c\": %i }", t, h, c);
+    snprintf(payload, sizeof(payload), "{ \"t\": %.1f, \"h\": %.1f, \"c\": %i, \"p\": %.1f }", t, h, c, p);
     Particle.publish("climate", payload, 60);
 }
+
