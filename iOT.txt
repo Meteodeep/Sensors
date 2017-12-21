@@ -1,6 +1,6 @@
 Losant - Customization, Workflows, Functions. Triggers, Webhook. Device State, HTTPS to JSON
 Thingspeak - MATLAB Graphs
-Dweet - Text-based data (HTTPS), very easy to use, C++ code
+Dweet - Text-based data (HTTPS), very easy to use, C++ code (HTTPS and JSON)
 Freeboard - Linked to Dweet, Simple Graphs and Editing
 
 All Notes and code Available on other folder.....
